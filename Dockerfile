@@ -24,18 +24,21 @@ RUN cd /etc/Cloak ; make server
 COPY ./setup.py /etc
 RUN python /etc/setup.py $ss_opt
 
+# start
+CMD /usr/local/bin/ss-server -v -c /etc/shadowsocks-libev/config.json
+
 # run application on startup
-RUN systemctl enable shadowsocks-libev
-RUN sudo systemctl start shadowsocks-libev
-RUN sudo systemctl status shadowsocks-libev
-RUN sudo chkconfig shadowsocks-libev on
+# RUN systemctl enable shadowsocks-libev
+# RUN systemctl start shadowsocks-libev
+# RUN systemctl status shadowsocks-libev
+# RUN chkconfig shadowsocks-libev on
 
 # configure firewall (if needed)
-RUN firewall-cmd --zone=public --add-port=80/tcp --permanent
-RUN firewall-cmd --zone=public --add-port=80/udp --permanent
-RUN firewall-cmd --zone=public --add-port=443/tcp --permanent
-RUN firewall-cmd --zone=public --add-port=443/udp --permanent
-RUN firewall-cmd --reload
+# RUN firewall-cmd --zone=public --add-port=80/tcp --permanent
+# RUN firewall-cmd --zone=public --add-port=80/udp --permanent
+# RUN firewall-cmd --zone=public --add-port=443/tcp --permanent
+# RUN firewall-cmd --zone=public --add-port=443/udp --permanent
+# RUN firewall-cmd --reload
 
 # watch log
-RUN journalctl | grep ss-server
+# RUN journalctl | grep ss-server
