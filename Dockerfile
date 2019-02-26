@@ -26,9 +26,9 @@ RUN python /etc/setup.py $ss_opt
 
 # run application on startup
 RUN systemctl enable shadowsocks-libev
-RUN su systemctl start shadowsocks-libev
-RUN su systemctl status shadowsocks-libev
-RUN su chkconfig shadowsocks-libev on
+RUN sudo systemctl start shadowsocks-libev
+RUN sudo systemctl status shadowsocks-libev
+RUN sudo chkconfig shadowsocks-libev on
 
 # configure firewall (if needed)
 RUN firewall-cmd --zone=public --add-port=80/tcp --permanent
