@@ -54,6 +54,8 @@ def main(argv):
         ssConfig["plugin_opts"] = CLOAK_CONFIG_FILT_PATH
 
     # dump ss config file
+    print('Final ss-server config: ')
+    print(json.dumps(ssConfig, indent=2, sort_keys=True))
     if os.path.exists(SS_CONFIG_FILE_PAHT):
         os.remove(SS_CONFIG_FILE_PAHT)
     if not os.path.exists(os.path.dirname(SS_CONFIG_FILE_PAHT)):
