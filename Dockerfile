@@ -6,8 +6,7 @@ RUN yum install gcc gettext autoconf libtool automake make pcre-devel asciidoc x
 RUN yum install wget -y
 
 # install shadowsocks-libev
-RUN cd /etc/yum.repos.d/
-RUN wget https://copr.fedoraproject.org/coprs/librehat/shadowsocks/repo/epel-7/librehat-shadowsocks-epel-7.repo
+RUN cd /etc/yum.repos.d/ ; wget https://copr.fedoraproject.org/coprs/librehat/shadowsocks/repo/epel-7/librehat-shadowsocks-epel-7.repo
 # RUN yum localinstall --nogpgcheck http://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/e/epel-release-7-11.noarch.rpm -y
 # RUN yum update -y
 RUN yum install shadowsocks-libev -y
@@ -18,10 +17,8 @@ RUN curl -s https://mirror.go-repo.io/centos/go-repo.repo | tee /etc/yum.repos.d
 RUN yum install go -y
 RUN yum install make -y
 
-RUN cd /etc
-RUN git clone https://github.com/cbeuw/Cloak.git
-RUN cd Cloak
-RUN make server
+RUN cd /etc ; git clone https://github.com/cbeuw/Cloak.git
+RUN cd /etc/Cloak ; make server
 
 # config shadowsocks, ss_opt is '-p password -c[cloaked]'
 COPY ./setup.py /etc
