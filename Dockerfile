@@ -8,9 +8,7 @@ RUN yum install wget -y
 # install shadowsocks-libev
 RUN cd /etc/yum.repos.d/
 RUN wget https://copr.fedoraproject.org/coprs/librehat/shadowsocks/repo/epel-7/librehat-shadowsocks-epel-7.repo
-RUN yum update -y
-RUN yum install yum-copr-plugin -y
-RUN yum copr enable librehat/shadowsocks -y
+RUN yum localinstall --nogpgcheck http://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/e/epel-release-7-11.noarch.rpm -y
 RUN yum update -y
 RUN yum install shadowsocks-libev -y
 
