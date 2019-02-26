@@ -3,6 +3,7 @@ FROM centos:7
 # install dependencies
 RUN yum install epel-release -y
 RUN yum install gcc gettext autoconf libtool automake make pcre-devel asciidoc xmlto udns-devel libev-devel -y
+RUN yum install wget -y
 
 # install shadowsocks-libev
 RUN cd /etc/yum.repos.d/
@@ -22,7 +23,8 @@ RUN cd Cloak
 RUN make server
 
 # config shadowsocks, ss_opt is '-p password -c[cloaked]'
-RUN python setup.sh $ss_opt
+COPY ./setup.py /etc
+RUN python /etc/setup.py $ss_opt
 
 # run application on startup
 RUN systemctl enable shadowsocks-libev
