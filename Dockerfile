@@ -25,7 +25,7 @@ COPY ./setup.py /etc
 RUN python /etc/setup.py $ss_opt
 
 # start
-# CMD ["ss-server", "-v", "-c /etc/shadowsocks-libev/config.json"]
+ENTRYPOINT ["ss-server", "-v", "-c /etc/shadowsocks-libev/config.json"]
 
 # run application on startup
 # RUN systemctl enable shadowsocks-libev
