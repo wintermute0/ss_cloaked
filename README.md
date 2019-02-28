@@ -11,7 +11,7 @@ docker build -t ss_cloaked --build-arg SS_OPT=-c\ -p\ password .
 docker run -d -p 443:443 ss_cloaked
 ```
 
-# Connect to ss_locaked:
+# Connect to ss_cloaked:
 
 ```
 ss-local -c /usr/local/etc/shadowsocks-libev.json
