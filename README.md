@@ -23,6 +23,6 @@ shadowsocks-libev.json
 
 ckclient.json
 
-"UID":"i0PQxTlUCVQs0VtU3dFNx3l06WScPT+BTOn8lg2PsQE=",
-"PublicKey":"lkVALo8N74jeXutO079Pb4P/WFHk4Z5qmqaOvWeAMg8=",
+"UID":"<AdminUID>",
+"PublicKey":"<PK>",
 ```
